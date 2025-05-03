@@ -6,7 +6,7 @@ import tensorflow as tf
 # Load the trained model once
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("hybrid_deepfake_model.h5")
+    return tf.keras.models.load_model("model.h5")
 
 model = load_model()
 
