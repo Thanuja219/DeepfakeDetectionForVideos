@@ -1,0 +1,14 @@
+streamlit
+tensorflow
+numpy
+Pillow
+opencv-python
+mtcnn
+pandas
+json
+os
+shutil
+efficientNet
+matplotlib
+sklearn
+seaborn
