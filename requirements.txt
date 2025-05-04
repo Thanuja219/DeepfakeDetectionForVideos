@@ -11,4 +11,4 @@ efficientNet
 matplotlib
 sklearn
 seaborn
-tensorflow-cpu
+tensorflow=2.1.0-rc0
