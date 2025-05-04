@@ -1,3 +1,4 @@
+tensorflow=2.1.0-rc0
 streamlit
 numpy
 Pillow
@@ -11,4 +12,4 @@ efficientNet
 matplotlib
 sklearn
 seaborn
-tensorflow=2.1.0-rc0
+
