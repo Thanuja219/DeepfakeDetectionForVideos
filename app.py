@@ -5,15 +5,31 @@ import tensorflow as tf
 from mtcnn import MTCNN
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
+from tensorflow.keras.layers import SeparableConv2D  # Import the layer
+
+# Check TensorFlow and Keras versions
+tf_version = tf.__version__
+keras_version = tf.keras.__version__
+st.write(f"TensorFlow version: {tf_version}")
+st.write(f"Keras version: {keras_version}")
 
 # Load model
 # Ensure this path is correct for your environment
-model_path = './xception_model.h5'
+model_path = '/kaggle/working/models/xception_model.h5'
 try:
-    model = load_model(model_path)
-    print(f"Model loaded from {model_path}")
+    # Attempt to load the model with a custom_object_scope to handle potential version issues
+    model = load_model(model_path, custom_objects={'SeparableConv2D': SeparableConv2D})
+    st.write(f"Model loaded from {model_path}")
 except Exception as e:
     st.error(f"Error loading model: {e}")
+    st.error(
+        "Model loading failed due to a potential incompatibility issue.  "
+        "This is often caused by differences in TensorFlow/Keras versions "
+        "between the environment where the model was trained and this environment.  "
+        "Please ensure that the TensorFlow and Keras versions are compatible.  "
+        "You may need to install a specific version of TensorFlow (e.g., using 'pip install tensorflow==<version>') "
+        "to match the training environment."
+    )
     st.stop()
 
 # Load MTCNN detector
