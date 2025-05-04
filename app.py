@@ -15,7 +15,7 @@ st.write(f"Keras version: {keras_version}")
 
 # Load model
 # Ensure this path is correct for your environment
-model_path = '/kaggle/working/models/xception_model.h5'
+model_path = './xception_model.h5'
 try:
     # Attempt to load the model with a custom_object_scope to handle potential version issues
     model = load_model(model_path, custom_objects={'SeparableConv2D': SeparableConv2D})
